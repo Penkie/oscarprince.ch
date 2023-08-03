@@ -1,1 +1,14 @@
+<div class="header">
+    <div class="title">Oscar Prince</div>
+    <nav>
+        <ul>
+            <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="selected">Accueil</li>
+            <li routerLink="/projects" routerLinkActive="active">Projets</li>
+            <li routerLink="/contact" routerLinkActive="active">Contact</li>
+        </ul>
+    </nav>
+</div>
 <router-outlet></router-outlet>
+<footer>
+    © 2023 Oscar Prince — Made with love and some coffee
+</footer>
