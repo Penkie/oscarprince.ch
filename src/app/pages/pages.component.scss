@@ -10,6 +10,8 @@
 
         .title {
             font-size: 34px;
+            font-family: 'Mackinac Pro', sans-serif;
+            font-weight: bold;
         }
 
         nav {
@@ -20,7 +22,7 @@
                 display: flex;
 
                 li {
-                    padding: 10px 15px;
+                    padding: 5px 15px;
                     border-radius: 5px;
 
                     &:not(:first-child) {
@@ -33,7 +35,9 @@
                 }
 
                 .active {
-                    box-shadow: rgb(232, 232, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+                    border: 1px solid #DBDBDB;
+                    box-shadow: 1px 1px 3px 0px #DBDBDB;
+                    // box-shadow: rgb(232, 232, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
                 }
             }
         }
@@ -43,5 +47,6 @@
         position: fixed;
         bottom: 0;
         padding: 30px 0;
+        font-family: 'Mackinac Pro', sans-serif;
     }
 }
