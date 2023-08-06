@@ -3,6 +3,15 @@
 </header>
 <div class="projects">
     <div *ngFor="let project of projects | async" class="project">
-        {{ project.title }}
+        <span class="title">
+            {{ project.title }}
+            <div [ngClass]="project.status.toLowerCase()" class="status">
+                <span *ngIf="project.status === 'UNDER_DEVELOPMENT'">En cours de développement</span>
+                <span *ngIf="project.status === 'ARCHIVED'">Archivé</span>
+                <span *ngIf="project.status === 'ONLINE'">En ligne</span>
+                <span *ngIf="project.status === 'OFFLINE'">Hors ligne</span>
+            </div>
+        </span>
+        <span class="desc">{{ project.description }}</span>
     </div>
 </div>

@@ -9,3 +9,7 @@ export interface Project {
     title: string;
     updated: Date;
 }
+
+export enum Status {
+    UNDER_DEVELOPMENT, ARCHIVED, ONLINE, OFFLINE
+}

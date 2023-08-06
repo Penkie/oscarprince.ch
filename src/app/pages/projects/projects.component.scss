@@ -9,4 +9,53 @@
             font-family: 'Merriweather', serif;
         }
     }
+
+    .projects {
+        overflow: auto;
+
+        .project {
+            padding: 25px;
+            border: 1px solid rgb(227, 227, 227);
+            border-radius: 5px;
+
+            .title {
+                font-size: 18px;
+                display: block;
+                display: flex;
+                align-items: center;
+
+                .status {
+                    display: inline;
+                    font-size: 12px;
+                    margin-left: 10px;
+                    padding: 0 5px;
+                    border-radius: 15px;
+                }
+
+                .under_development {
+                    background-color: rgba(0, 0, 255, 0.2);
+                }
+
+                .archived {
+                    background-color: rgba(255, 128, 0, 0.2);
+                }
+
+                .offline {
+                    background-color: rgba(255, 0, 0, 0.2);
+                }
+
+                .online {
+                    background-color: rgba(0, 255, 8, 0.2);
+                }
+            }
+
+            .desc {
+                color: grey;
+            }
+
+            &:not(:first-child) {
+                margin-top: 25px;
+            }
+        }
+    }
 }
