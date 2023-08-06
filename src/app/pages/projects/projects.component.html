@@ -1,0 +1,8 @@
+<header>
+    <span class="title">Mes projets</span>
+</header>
+<div class="projects">
+    <div *ngFor="let project of projects | async" class="project">
+        {{ project.title }}
+    </div>
+</div>
