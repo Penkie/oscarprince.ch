@@ -1,14 +1,18 @@
-<div class="header">
-    <div class="title">O. Prince</div>
-    <nav>
-        <ul>
-            <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</li>
-            <li routerLink="/projects" routerLinkActive="active">Projets</li>
-            <li routerLink="/contact" routerLinkActive="active">Contact</li>
-        </ul>
-    </nav>
+<div class="wrapper">
+    <div class="main-content">
+        <div class="header">
+            <div class="title">O. Prince</div>
+            <nav>
+                <ul>
+                    <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</li>
+                    <li routerLink="/projects" routerLinkActive="active">Projets</li>
+                    <li routerLink="/contact" routerLinkActive="active">Contact</li>
+                </ul>
+            </nav>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    <footer>
+        © 2023 Oscar Prince — Made with love and some coffee
+    </footer>
 </div>
-<router-outlet></router-outlet>
-<footer>
-    © 2023 Oscar Prince — Made with love and some coffee
-</footer>
