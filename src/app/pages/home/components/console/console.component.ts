@@ -10,11 +10,17 @@ export class ConsoleComponent implements AfterViewChecked {
   public outputs: string[] = [];
   public input: string = '';
   public userDisplay = 'anonymous@oscarprince.ch:~$';
+  public displayCaret = false;
 
   @ViewChild('console') private consoleRef!: ElementRef;
+  @ViewChild('userInput') private userInput!: ElementRef;
 
   public ngAfterViewChecked(): void {
     this.scrollToBottom();
+  }
+
+  public toggleCaret(event: FocusEvent): void {
+    console.log(event.type);
   }
 
   public submitInput(): void {
@@ -25,5 +31,9 @@ export class ConsoleComponent implements AfterViewChecked {
   
   public scrollToBottom(): void {
     this.consoleRef.nativeElement.scrollTop = this.consoleRef.nativeElement.scrollHeight + '100';
+  }
+
+  public focusInput(): void {
+    this.userInput.nativeElement.focus();
   }
 }
