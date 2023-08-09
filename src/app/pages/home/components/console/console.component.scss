@@ -1,0 +1,105 @@
+:host {
+    margin: 50px 0;
+    display: block;
+
+    .bar {
+        background-color: rgb(233, 233, 233);
+        display: flex;
+        padding: 5px;
+        border-radius: 5px 5px 0 0;
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:not(:first-child) {
+                margin-left: 5px;
+            }
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .green {
+            background-color: green;
+        }
+    }
+
+    .console {
+        height: 25vh;
+        background-color: black;
+        width: 100%;
+        color: white;
+        border-radius: 0 0 5px 5px;
+
+        // .command {
+        //     display: flex;
+
+        //     @keyframes caret-flash {
+        //         from { opacity: 1; }
+        //         to { opacity: 0.1; }
+        //     }
+
+        //     .caret {
+        //         width: 10px;
+        //         height: 18px;
+        //         background-color: #fff;
+        //         animation: 0.6s alternate infinite caret-flash;
+        //     }
+
+        //     input {
+        //         width: 100%;
+        //         background: none;
+        //         border: none;
+        //         color: white;
+        //         font-size: 14px;
+    
+        //         &:focus {
+        //             outline: none;
+        //         }
+        //     }
+        // }
+
+        .user-input {
+            display: flex;
+            align-items: center;
+
+            input {
+                position: absolute;
+                background: none;
+                cursor: default;
+                border: none;
+                resize: none;
+                opacity: 0;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .display-text {
+                margin-left: 5px;
+            }
+
+            @keyframes caret-flash {
+                from { opacity: 1; }
+                to { opacity: 0.1; }
+            }
+
+            .caret {
+                width: 10px;
+                height: 18px;
+                background-color: #fff;
+                animation: 0.6s alternate infinite caret-flash;
+            }
+        }
+
+    }
+}

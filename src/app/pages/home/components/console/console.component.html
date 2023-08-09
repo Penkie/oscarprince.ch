@@ -1,0 +1,16 @@
+<div class="bar">
+    <div class="dot red"></div>
+    <div class="dot orange"></div>
+    <div class="dot green"></div>
+</div>
+<div class="console">
+    <div *ngFor="let output of outputs" class="output">
+        {{ output }}
+    </div>
+    <div class="user-input">
+        <input (keydown.enter)="submitInput()" [(ngModel)]="input" type="text">
+        <span>{{ userDisplay }}</span>
+        <div class="display-text">{{ input }}</div>
+        <div class="caret"></div>
+    </div>
+</div>
