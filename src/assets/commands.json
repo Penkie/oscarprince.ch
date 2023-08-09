@@ -1,0 +1,14 @@
+[
+    {
+        "input": "help",
+        "output": "À la recherche de quelque chose ?"
+    },
+    {
+        "input": "about",
+        "output": "Je m'appelle Oscar, j'ai 20 ans et je suis diplômé d'un CFC d'informatique en développement d'application. Je suis en train de mettre mon rêve en place: devenir policier."
+    },
+    {
+        "input": "mayra",
+        "output": "Je t'aime mon amour <3"
+    }
+]
