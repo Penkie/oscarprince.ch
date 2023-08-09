@@ -19,10 +19,6 @@ export class ConsoleComponent implements AfterViewChecked {
     this.scrollToBottom();
   }
 
-  public toggleCaret(event: FocusEvent): void {
-    console.log(event.type);
-  }
-
   public submitInput(): void {
     this.outputs.push(`${this.userDisplay} ${this.input}`);
     this.input = '';
