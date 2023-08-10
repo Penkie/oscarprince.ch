@@ -8,13 +8,18 @@ import { ProjectsService } from 'src/app/common/services/projects.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
 
-  public projects: Observable<Project[]>;
+  public projects: Project[] = [];
 
   constructor(
     private projectsService: ProjectsService
-  ) {
-    this.projects = this.projectsService.getProjects();
+  ) {}
+
+  public ngOnInit(): void {
+    this.projectsService.getProjects$()
+      .subscribe(projects => {
+        this.projects = projects;
+      });
   }
 }

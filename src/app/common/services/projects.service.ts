@@ -16,7 +16,7 @@ export class ProjectsService {
     private http: HttpClient
   ) { }
 
-  public getProjects(): Observable<Project[]> {
+  public getProjects$(): Observable<Project[]> {
     return this.http.get<Pageable<Project>>(this.API_URL)
       .pipe(
         map(pageable => pageable.items)

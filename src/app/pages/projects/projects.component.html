@@ -2,7 +2,7 @@
     <span class="title">Mes projets</span>
 </header>
 <div class="projects">
-    <div *ngFor="let project of projects | async" class="project">
+    <div *ngFor="let project of projects" class="project">
         <span class="title">
             {{ project.title }}
             <div [ngClass]="project.status.toLowerCase()" class="status">
@@ -14,4 +14,7 @@
         </span>
         <span class="desc">{{ project.description }}</span>
     </div>
+</div>
+<div *ngIf="!projects || projects.length <= 0" class="loading">
+    <img src="assets/loader.svg" alt="loading">
 </div>
