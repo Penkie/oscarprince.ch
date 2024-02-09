@@ -56,6 +56,15 @@
                 }
             }
 
+            .error {
+                border-bottom: 2px solid rgb(218, 31, 31) !important;
+            }
+
+            .error-message {
+                color: rgb(218, 31, 31);
+                font-size: 12px;
+            }
+
             .actions {
                 align-self: flex-end;
 

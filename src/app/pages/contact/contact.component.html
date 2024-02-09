@@ -5,20 +5,29 @@
     <span class="info-text">
         Je suis contactable soit par adresse e-mail : contact&#64;oscarprince.ch ou à travers le formulaire ci-dessous.
     </span>
-    <form>
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
         <div class="user-info">
             <div class="contact-input">
                 <label for="name">Nom</label>
-                <input class="form-style" type="text" placeholder="Votre nom">
+                <input formControlName="name" [class.error]="submitted && contactForm.controls.name.invalid" class="form-style" type="text" placeholder="Votre nom">
+                @if (submitted && contactForm.controls.name.invalid) {
+                    <span class="error-message">Le nom doit être rempli</span>
+                }   
             </div>
             <div class="contact-input">
                 <label for="email">E-mail</label>
-                <input class="form-style" type="email" placeholder="Votre e-mail">
+                <input formControlName="email" [class.error]="submitted && contactForm.controls.email.invalid" class="form-style" type="email" placeholder="Votre e-mail">
+                @if (submitted && contactForm.controls.email.invalid) {
+                    <span class="error-message">L'e-mail doit être valide</span>
+                } 
             </div>
         </div>
         <div class="contact-input">
             <label for="message">Message</label>
-            <textarea class="form-style" placeholder="Votre message"></textarea>
+            <textarea formControlName="message" [class.error]="submitted && contactForm.controls.message.invalid" class="form-style" placeholder="Votre message"></textarea>
+            @if (submitted && contactForm.controls.message.invalid) {
+                <span class="error-message">Le message doit être rempli et faire maximum 500 caractères</span>
+            } 
         </div>
         <div class="actions">
             <button type="submit">Envoyer</button>

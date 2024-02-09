@@ -6,7 +6,8 @@ import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ConsoleComponent } from './home/components/console/console.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -14,12 +15,14 @@ import { FormsModule } from '@angular/forms';
     PagesComponent,
     HomeComponent,
     ProjectsComponent,
+    ContactComponent,
     ConsoleComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }
