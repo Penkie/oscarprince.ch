@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { catchError } from 'rxjs';
+import { ContactService } from 'src/app/common/services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +11,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent {
 
   public submitted = false;
+  public sentSuccessfully = false;
+  public errorWhileSending = false;
+
+  constructor(
+    private contactService: ContactService
+  ) {}
 
   public contactForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -22,5 +30,18 @@ export class ContactComponent {
     if (!this.contactForm.valid) {
       return;
     }
+
+    this.contactService.newContactForm(this.contactForm.controls.name.value!, this.contactForm.controls.email.value!, this.contactForm.controls.message.value!)
+      .subscribe({
+        next: (res) => {
+            if (res.id) {
+            this.sentSuccessfully = true;
+            this.contactForm.reset(this.contactForm.value);
+          }
+        },
+        error: (err) => {
+          this.errorWhileSending = true;
+        }
+      })
   }
 }
