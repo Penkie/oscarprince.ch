@@ -89,4 +89,10 @@
         }
 
     }
+
+    @media screen and (max-width: 650px) {
+        .user-info {
+            flex-direction: column !important;
+        }
+    }
 }
