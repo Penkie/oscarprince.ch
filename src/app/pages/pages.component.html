@@ -9,6 +9,22 @@
                     <li routerLink="/contact" routerLinkActive="active">Contact</li>
                 </ul>
             </nav>
+            <div class="mobile-nav">
+                @if (showMobileMenu) {
+                    <img (click)="showMobileMenu = !showMobileMenu" width="40px" height="40px" src="assets/close.svg" alt="close">
+                } @else {
+                    <img (click)="showMobileMenu = !showMobileMenu" width="40px" height="40px" src="assets/menu.svg" alt="menu">
+                }
+            </div>
+            @if (showMobileMenu) {
+                <div class="mobile-menu">
+                    <ul (click)="showMobileMenu = !showMobileMenu">
+                        <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</li>
+                        <li routerLink="/projects" routerLinkActive="active">Projets</li>
+                        <li routerLink="/contact" routerLinkActive="active">Contact</li>
+                    </ul>
+                </div>
+            }
         </div>
         <router-outlet></router-outlet>
     </div>
