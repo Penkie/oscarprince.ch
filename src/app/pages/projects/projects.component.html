@@ -5,11 +5,11 @@
     <div *ngFor="let project of projects" class="project">
         <span class="title">
             {{ project.title }}
-            <div [ngClass]="project.status.toLowerCase()" class="status">
-                <span *ngIf="project.status === 'UNDER_DEVELOPMENT'">En cours de développement</span>
-                <span *ngIf="project.status === 'ARCHIVED'">Archivé</span>
-                <span *ngIf="project.status === 'ONLINE'">En ligne</span>
-                <span *ngIf="project.status === 'OFFLINE'">Hors ligne</span>
+            <div [ngClass]="project.status.toString().toLowerCase()" class="status">
+                <span *ngIf="project.status.toString() === 'UNDER_DEVELOPMENT'">En cours de développement</span>
+                <span *ngIf="project.status.toString() === 'ARCHIVED'">Archivé</span>
+                <span *ngIf="project.status.toString() === 'ONLINE'">En ligne</span>
+                <span *ngIf="project.status.toString() === 'OFFLINE'">Hors ligne</span>
             </div>
         </span>
         <span class="desc">{{ project.description }}</span>
