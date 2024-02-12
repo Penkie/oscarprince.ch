@@ -5,7 +5,8 @@ export interface Project {
     description: string;
     id: string;
     link: string;
-    status: string;
+    status: Status;
+    order: number;
     title: string;
     updated: Date;
 }

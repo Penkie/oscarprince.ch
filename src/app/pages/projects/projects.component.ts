@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Project } from 'src/app/common/models/project.model';
 import { ProjectsService } from 'src/app/common/services/projects.service';
 
@@ -18,6 +18,9 @@ export class ProjectsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.projectsService.getProjects$()
+      .pipe(
+        map(projects => projects.sort((a, b) => a.order - b.order))
+      )
       .subscribe(projects => {
         this.projects = projects;
       });
