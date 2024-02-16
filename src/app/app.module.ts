@@ -4,9 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { inject } from '@vercel/analytics';
-
-inject();
 
 @NgModule({
   declarations: [
