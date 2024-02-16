@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@vercel/analytics"
+            ],
             "outputPath": "dist/oscarprince",
             "index": "src/index.html",
             "main": "src/main.ts",
