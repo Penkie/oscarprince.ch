@@ -1,3 +1,3 @@
 export const environment = {
-    API_URL: 'https://oscarprince.fly.dev'
+    API_URL: 'https://pb.oscarprince.ch'
 };
