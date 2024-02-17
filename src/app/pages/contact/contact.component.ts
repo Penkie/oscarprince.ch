@@ -13,6 +13,7 @@ export class ContactComponent {
   public submitted = false;
   public sentSuccessfully = false;
   public errorWhileSending = false;
+  public loading = false;
 
   constructor(
     private contactService: ContactService
@@ -31,15 +32,19 @@ export class ContactComponent {
       return;
     }
 
+    this.loading = true;
+
     this.contactService.newContactForm(this.contactForm.controls.name.value!, this.contactForm.controls.email.value!, this.contactForm.controls.message.value!)
       .subscribe({
         next: (res) => {
+            this.loading = false;
             if (res.id) {
-            this.sentSuccessfully = true;
-            this.contactForm.reset(this.contactForm.value);
-          }
+              this.sentSuccessfully = true;
+              this.contactForm.reset(this.contactForm.value);
+            }
         },
         error: (err) => {
+          this.loading = false;
           this.errorWhileSending = true;
         }
       })

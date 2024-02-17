@@ -65,8 +65,25 @@
                 font-size: 12px;
             }
 
-            .error-sending {
+            .error-sending {
                 color: rgb(218, 31, 31);
+            }
+
+            .sent {
+                padding: 10px;
+                background-color: green;
+                color: white;
+                border-radius: 5px;
+                width: fit-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                }
             }
 
             .actions {
