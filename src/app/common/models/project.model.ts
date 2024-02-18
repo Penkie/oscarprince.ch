@@ -6,7 +6,7 @@ export interface Project {
     created: Date;
     description: string;
     id: string;
-    link: string;
+    url: string;
     status: Status;
     order: number;
     title: string;

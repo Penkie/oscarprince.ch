@@ -20,6 +20,9 @@
             padding: 25px;
             border: 1px solid rgb(227, 227, 227);
             border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             .title {
                 font-size: 18px;
@@ -54,6 +57,26 @@
 
             .desc {
                 color: grey;
+            }
+
+            .links {
+                display: flex;
+
+                .link {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 2px;
+                    // text-decoration: none;
+                    color: black;
+                    border-radius: 5px;
+                    border: 1px solid rgb(206, 206, 206);
+                    cursor: pointer;
+
+                    img {
+                        margin-right: 5px;
+                    } 
+                }
             }
 
             .techonolgies {
