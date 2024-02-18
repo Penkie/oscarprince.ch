@@ -31,6 +31,7 @@ export class ProjectsService {
                 techonolgies.push(technology);
               }
             });
+            techonolgies.sort((a, b) => a.name.localeCompare(b.name));
             project.technologies = techonolgies;
           })
         }),
