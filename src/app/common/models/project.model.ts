@@ -1,3 +1,5 @@
+import { Technology } from "./technology.model";
+
 export interface Project {
     collectionId: string;
     collectionName: string;
@@ -9,6 +11,8 @@ export interface Project {
     order: number;
     title: string;
     updated: Date;
+    // custom fields not in DB
+    technologies: Technology[];
 }
 
 export enum Status {

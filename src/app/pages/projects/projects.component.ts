@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { map } from 'rxjs';
 import { Project } from 'src/app/common/models/project.model';
 import { ProjectsService } from 'src/app/common/services/projects.service';
 
@@ -23,6 +23,7 @@ export class ProjectsComponent implements OnInit {
       )
       .subscribe(projects => {
         this.projects = projects;
+        console.log(this.projects);
       });
   }
 }
