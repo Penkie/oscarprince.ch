@@ -23,6 +23,11 @@
         </div>
     </div>
 </div>
-<div *ngIf="!projects || projects.length <= 0" class="loading">
+@if (errorLoading) {
+    <div class="error-container">
+        <app-error [message]="'Une erreur est survenue lors du chargement des projets.'"></app-error>
+    </div>
+}
+<div *ngIf="(!projects || projects.length <= 0) && !errorLoading" class="loading">
     <img src="assets/loader.svg" alt="loading">
 </div>

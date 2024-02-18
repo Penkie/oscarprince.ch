@@ -8,6 +8,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ConsoleComponent } from './home/components/console/console.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
+import { ErrorComponent } from '../common/components/error/error.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ContactComponent } from './contact/contact.component';
     CommonModule,
     PagesRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ErrorComponent
   ]
 })
 export class PagesModule { }

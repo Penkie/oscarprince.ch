@@ -11,6 +11,7 @@ import { ProjectsService } from 'src/app/common/services/projects.service';
 export class ProjectsComponent implements OnInit {
 
   public projects: Project[] = [];
+  public errorLoading = false;
 
   constructor(
     private projectsService: ProjectsService
@@ -21,8 +22,13 @@ export class ProjectsComponent implements OnInit {
       .pipe(
         map(projects => projects.sort((a, b) => a.order - b.order))
       )
-      .subscribe(projects => {
-        this.projects = projects;
+      .subscribe({
+        next: (projects) => {
+          this.projects = projects
+        },
+        error: (err) => {
+          this.errorLoading = true;
+        }
       });
   }
 }

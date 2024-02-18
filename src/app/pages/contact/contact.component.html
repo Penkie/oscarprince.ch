@@ -40,7 +40,7 @@
         }
         @if (errorWhileSending) {
             <div class="error-sending">
-                Une erreur est survenue lors de l'envoi des données.
+                <app-error [message]="'Une erreur est survenue lors de l\'envoi du formulaire.'"></app-error>
             </div>
         }
     </form>
