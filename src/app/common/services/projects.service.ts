@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ProjectsService {
 
-  private API_URL = `${environment.API_URL}/api/collections/projects/records`;
+  private API_URL = `${environment.API_URL}/api/collections/project/records`;
 
   constructor(
     private http: HttpClient
