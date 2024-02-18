@@ -12,6 +12,9 @@
 
     .projects {
         overflow: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
 
         .project {
             padding: 25px;
@@ -73,10 +76,6 @@
                     }
                 }
             }
-
-            &:not(:first-child) {
-                margin-top: 25px;
-            }
         }
     }
 
@@ -84,5 +83,11 @@
         display: flex;
         justify-content: center;
         margin: 50px 0;
+    }
+
+    @media (max-width: 800px) {
+        .projects {
+            grid-template-columns: 1fr;
+        }
     }
 }
