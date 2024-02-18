@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { provideRouter } from '@angular/router';
+import { inject } from '@vercel/analytics';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,15 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideRouter(routes),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => {
+        inject({ mode: isDevMode() ? 'development' : 'production' })
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
