@@ -5,7 +5,7 @@
     <div *ngFor="let project of projects" class="project">
         <div class="top">
             <span class="title">
-                {{ project.title }}
+                <span>{{ project.title }}</span>
                 <div [ngClass]="project.status.toString().toLowerCase()" class="status">
                     <span *ngIf="project.status.toString() === 'UNDER_DEVELOPMENT'">En cours de développement</span>
                     <span *ngIf="project.status.toString() === 'ARCHIVED'">Archivé</span>
@@ -20,7 +20,7 @@
                 @if (project.url) {
                     <a target="_blank" href="{{ project.url }}" class="link">
                         <img width="20" src="assets/link.svg" alt="link">
-                        <span>Lien vers l'application</span>
+                        <span>{{ project.url | removeHttpString }}</span>
                     </a>
                 }
             </div>

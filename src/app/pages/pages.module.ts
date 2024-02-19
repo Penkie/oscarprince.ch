@@ -9,6 +9,7 @@ import { ConsoleComponent } from './home/components/console/console.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { ErrorComponent } from '../common/components/error/error.component';
+import { RemoveHttpStringPipe } from '../common/utils/remove-http-string.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ErrorComponent } from '../common/components/error/error.component';
     PagesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ErrorComponent
+    ErrorComponent,
+    RemoveHttpStringPipe
   ]
 })
 export class PagesModule { }
