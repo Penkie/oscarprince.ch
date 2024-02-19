@@ -47,6 +47,10 @@
         .user-input {
             display: flex;
             align-items: center;
+            
+            .input-label {
+                display: none;
+            }
 
             input {
                 position: absolute;
