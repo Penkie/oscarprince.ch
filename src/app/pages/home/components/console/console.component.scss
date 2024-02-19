@@ -49,7 +49,8 @@
             align-items: center;
             
             .input-label {
-                display: none;
+                opacity: 0;
+                position: absolute;
             }
 
             input {
