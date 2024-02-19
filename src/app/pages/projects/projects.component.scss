@@ -19,7 +19,7 @@
         .project {
             padding: 25px;
             border: 1px solid rgb(227, 227, 227);
-            border-radius: 5px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -36,7 +36,7 @@
                     font-size: 14px;
                     margin-left: 10px;
                     padding: 0 5px;
-                    border-radius: 5px;
+                    border-radius: 8px;
                 }
 
                 .under_development {
@@ -73,7 +73,7 @@
                     padding: 5px;
                     // text-decoration: none;
                     color: black;
-                    border-radius: 5px;
+                    border-radius: 8px;
                     border: 1px solid rgb(234, 234, 234);
                     cursor: pointer;
 
@@ -93,7 +93,7 @@
                     align-items: center;
                     justify-content: center;
                     padding: 5px 5px;
-                    border-radius: 5px;
+                    border-radius: 8px;
 
                     img {
                         margin-right: 5px;

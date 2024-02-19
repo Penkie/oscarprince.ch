@@ -6,7 +6,7 @@
         background-color: rgb(233, 233, 233);
         display: flex;
         padding: 5px;
-        border-radius: 5px 5px 0 0;
+        border-radius: 8px 8px 0 0;
 
         .dot {
             width: 15px;
@@ -37,7 +37,7 @@
         background-color: black;
         width: 100%;
         color: white;
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 8px 8px;
         overflow-y: auto;
         scroll-behavior: smooth;
         cursor: text;
