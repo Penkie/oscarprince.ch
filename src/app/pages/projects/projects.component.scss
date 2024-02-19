@@ -28,6 +28,7 @@
                 font-size: 18px;
                 display: block;
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
 
                 .status {
@@ -35,28 +36,30 @@
                     font-size: 12px;
                     margin-left: 10px;
                     padding: 0 5px;
-                    border-radius: 15px;
+                    border-radius: 5px;
                 }
 
                 .under_development {
-                    background-color: rgba(0, 0, 255, 0.2);
+                    background-color: rgba(0, 0, 255, 0.1);
                 }
 
                 .archived {
-                    background-color: rgba(255, 128, 0, 0.2);
+                    background-color: rgba(255, 128, 0, 0.1);
                 }
 
                 .offline {
-                    background-color: rgba(255, 0, 0, 0.2);
+                    background-color: rgba(255, 0, 0, 0.1);
                 }
 
                 .online {
-                    background-color: rgba(0, 255, 8, 0.2);
+                    background-color: rgba(0, 255, 8, 0.1);
                 }
             }
 
             .desc {
                 color: grey;
+                margin: 10px 0;
+                display: block;
             }
 
             .links {
