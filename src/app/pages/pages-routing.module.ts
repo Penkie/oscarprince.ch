@@ -8,13 +8,13 @@ import { ContactComponent } from './contact/contact.component';
 const routes: Routes = [
   { path: '', component: PagesComponent, children: [
     {
-      path: '', component: HomeComponent
+      path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
     },
     {
-      path: 'projects', component: ProjectsComponent
+      path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule)
     },
     {
-      path: 'contact', component: ContactComponent
+      path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
     }
   ]
   }
