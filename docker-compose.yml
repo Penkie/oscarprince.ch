@@ -1,12 +1,15 @@
 services:
   web:
     build: .
-    container_name: oscarprince-web
+    container_name: web
     restart: unless-stopped
+    networks:
+      - proxy
     ports:
       - "8010:8010"
     labels:
-      - "traefik.http.routers.oscarprince.rule=Host(`new.oscarprince.ch`)"
+      - "traefik.http.routers.web.rule=Host(`new.oscarprince.ch`)"
+      - "traefik.http.services.web.loadbalancer.server.port=8010"
   api:
     build: ./pocketbase/.
     container_name: oscarprince-api
@@ -15,3 +18,8 @@ services:
       - "8011:8011"
     volumes:
       - /data:/pb_data
+
+networks:
+  proxy:
+    name: proxy
+    external: true
