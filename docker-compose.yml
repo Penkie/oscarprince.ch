@@ -5,6 +5,8 @@ service:
     restart: unless-stopped
     ports:
       - "8010:8010"
+    labels:
+      - "traefik.http.routers.oscarprince.rule=Host(`new.oscarprince.ch`)"
   api:
     build: ./pocketbase/.
     container_name: oscarprince-api
