@@ -25,5 +25,5 @@ FROM nginx:latest
 COPY --from=build /usr/local/app/dist/oscarprince /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
-EXPOSE 80
+# Expose port 8010
+EXPOSE 8010

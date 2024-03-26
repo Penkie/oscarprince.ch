@@ -1,0 +1,15 @@
+service:
+  web:
+    build: .
+    container_name: oscarprince-web
+    restart: unless-stopped
+    ports:
+      - "8010:8010"
+  api:
+    build: ./pocketbase/.
+    container_name: oscarprince-api
+    restart: unless-stopped
+    ports:
+      - "8011:8011"
+    volumes:
+      - /data:/pb_data
