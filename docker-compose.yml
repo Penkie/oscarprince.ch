@@ -33,7 +33,7 @@ services:
       - "traefik.http.middlewares.oscarprince-api-https.redirectscheme.scheme=https"
       - "traefik.http.routers.oscarprince-api-http.entrypoints=web"
       - "traefik.http.routers.oscarprince-api.rule=Host(`api.new.oscarprince.ch`)"
-      - "traefik.http.services.oscarprince-api.loadbalancer.server.port=8010"
+      - "traefik.http.services.oscarprince-api.loadbalancer.server.port=8011"
       - "traefik.http.routers.oscarprince-api.entrypoints=websecure"
       - "traefik.http.routers.oscarprince-api.tls.certresolver=zeusresolver"
       - "traefik.http.routers.oscarprince-api.tls=true"
