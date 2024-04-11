@@ -26,7 +26,7 @@ services:
     ports:
       - "8011:8011"
     volumes:
-      - pb_data:/pb_data
+      - pb_volume:/app/data
     labels:
       - "traefik.http.routers.oscarprince-api-http.rule=Host(`api.new.oscarprince.ch`)"
       - "traefik.http.routers.oscarprince-api-http.middlewares=oscarprince-api-https"
@@ -44,4 +44,5 @@ networks:
     external: true
 
 volumes:
-  pb_data:
+  pb_volume:
+    name: pb_volume
