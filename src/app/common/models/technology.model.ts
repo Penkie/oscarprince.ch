@@ -7,5 +7,6 @@ export interface Technology {
     name: string;
     color: string;
     icon_url: string;
+    icon_file_name: string;
     alt: string;
 }

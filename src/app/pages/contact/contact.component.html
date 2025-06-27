@@ -24,7 +24,7 @@
         </div>
         <div class="contact-input">
             <label for="message">Message</label>
-            <textarea formControlName="message" [class.error]="submitted && contactForm.controls.message.invalid" class="form-style" placeholder="Votre message"></textarea>
+            <textarea rows="5" formControlName="message" [class.error]="submitted && contactForm.controls.message.invalid" class="form-style" placeholder="Votre message"></textarea>
             @if (submitted && contactForm.controls.message.invalid) {
                 <span class="error-message">Le message doit être rempli et faire maximum 500 caractères</span>
             } 

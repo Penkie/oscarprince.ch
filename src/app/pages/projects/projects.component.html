@@ -16,20 +16,20 @@
             <span class="desc">{{ project.description }}</span>
         </div>
         <div class="bottom">
+            <div class="techonolgies">
+                @for (technology of project.technologies; track $index) {
+                    <div [ngStyle]="{'background-color': technology.color + '2b'}" class="technology">
+                        <img width="20" src="assets/tech_icons/{{technology.icon_file_name}}" alt="{{technology.alt}}">
+                        <span>{{ technology.name }}</span>
+                    </div>
+                }
+            </div>
             <div class="links">
                 @if (project.url) {
                     <a target="_blank" href="{{ project.url }}" class="link">
                         <img width="20" src="assets/link.svg" alt="link">
                         <span>{{ project.url | removeHttpString }}</span>
                     </a>
-                }
-            </div>
-            <div class="techonolgies">
-                @for (technology of project.technologies; track $index) {
-                    <div [ngStyle]="{'background-color': technology.color + '2b'}" class="technology">
-                        <img width="20" src="{{technology.icon_url}}" alt="{{technology.alt}}">
-                        <span>{{ technology.name }}</span>
-                    </div>
                 }
             </div>
         </div>
