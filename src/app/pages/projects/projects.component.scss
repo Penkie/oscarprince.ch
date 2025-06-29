@@ -11,7 +11,6 @@
     }
 
     .projects {
-        // overflow: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
@@ -87,7 +86,9 @@
 
             .bottom {
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
+                gap: 5px;
                 justify-content: space-between;
             }
 
@@ -131,7 +132,8 @@
 
     @media (max-width: 800px) {
         .projects {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
         }
     }
 }
