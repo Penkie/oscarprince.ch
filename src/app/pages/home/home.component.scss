@@ -21,6 +21,8 @@
             display: flex;
 
             a {
+                text-decoration: none;
+
                 &:not(:first-child) {
                     margin-left: 5px;
                 }
@@ -32,10 +34,12 @@
                 border-radius: 8px;
                 cursor: pointer;
                 padding: 5px;
-                width: 30px;
-                height: 30px;
+                // width: 30px;
+                // height: 30px;
                 display: flex;
+                align-items: center;
                 justify-content: center;
+                gap: 8px;
 
                 img {
                     width: 20px;
