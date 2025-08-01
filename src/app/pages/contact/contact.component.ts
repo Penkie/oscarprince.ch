@@ -4,9 +4,10 @@ import { catchError } from 'rxjs';
 import { ContactService } from 'src/app/common/services/contact.service';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.scss',
+    standalone: false
 })
 export class ContactComponent {
 

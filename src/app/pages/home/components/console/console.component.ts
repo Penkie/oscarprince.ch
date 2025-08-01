@@ -3,9 +3,10 @@ import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@ang
 import { Command } from './models/command.model';
 
 @Component({
-  selector: 'console',
-  templateUrl: './console.component.html',
-  styleUrls: ['./console.component.scss']
+    selector: 'console',
+    templateUrl: './console.component.html',
+    styleUrls: ['./console.component.scss'],
+    standalone: false
 })
 export class ConsoleComponent implements AfterViewChecked, OnInit {
 
