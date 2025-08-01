@@ -1,42 +1,22 @@
 services:
   web:
     build: .
-    container_name: oscarprince-web
+    container_name: ssr-oscarprince-web
     restart: unless-stopped
     networks:
       - proxy
     ports:
-      - "8010:8010"
+      - "4000:4000"
     labels:
-      - "traefik.http.routers.oscarprince-web-http.rule=Host(`oscarprince.ch`)"
-      - "traefik.http.routers.oscarprince-web-http.middlewares=oscarprince-web-https"
-      - "traefik.http.middlewares.oscarprince-web-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.oscarprince-web-http.entrypoints=web"
-      - "traefik.http.routers.oscarprince-web.rule=Host(`oscarprince.ch`)"
-      - "traefik.http.services.oscarprince-web.loadbalancer.server.port=8010"
-      - "traefik.http.routers.oscarprince-web.entrypoints=websecure"
-      - "traefik.http.routers.oscarprince-web.tls.certresolver=zeusresolver"
-      - "traefik.http.routers.oscarprince-web.tls=true"
-  api:
-    build: ./pocketbase/.
-    container_name: oscarprince-api
-    restart: unless-stopped
-    networks:
-      - proxy
-    ports:
-      - "8011:8011"
-    volumes:
-      - "./pocketbase-data:/pb/pb_data"
-    labels:
-      - "traefik.http.routers.oscarprince-api-http.rule=Host(`pb.oscarprince.ch`)"
-      - "traefik.http.routers.oscarprince-api-http.middlewares=oscarprince-api-https"
-      - "traefik.http.middlewares.oscarprince-api-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.oscarprince-api-http.entrypoints=web"
-      - "traefik.http.routers.oscarprince-api.rule=Host(`pb.oscarprince.ch`)"
-      - "traefik.http.services.oscarprince-api.loadbalancer.server.port=8011"
-      - "traefik.http.routers.oscarprince-api.entrypoints=websecure"
-      - "traefik.http.routers.oscarprince-api.tls.certresolver=zeusresolver"
-      - "traefik.http.routers.oscarprince-api.tls=true"
+      - "traefik.http.routers.ssr-oscarprince-web-http.rule=Host(`ssr.oscarprince.ch`)"
+      - "traefik.http.routers.ssr-oscarprince-web-http.middlewares=ssr-oscarprince-web-https"
+      - "traefik.http.middlewares.ssr-oscarprince-web-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.ssr-oscarprince-web-http.entrypoints=web"
+      - "traefik.http.routers.ssr-oscarprince-web.rule=Host(`ssr.oscarprince.ch`)"
+      - "traefik.http.services.ssr-oscarprince-web.loadbalancer.server.port=4000"
+      - "traefik.http.routers.ssr-oscarprince-web.entrypoints=websecure"
+      - "traefik.http.routers.ssr-oscarprince-web.tls.certresolver=zeusresolver"
+      - "traefik.http.routers.ssr-oscarprince-web.tls=true"
 
 networks:
   proxy:

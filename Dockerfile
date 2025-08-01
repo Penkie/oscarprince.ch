@@ -16,14 +16,9 @@ RUN npm install
 RUN npm run build
 
 
-# Stage 2: Serve app with nginx server
+# Stage 2: Run node server (Angular SSR)
 
-# Use official nginx image as the base image
-FROM nginx:latest
+CMD node /usr/local/app/dist/oscarprince/server/server.mjs
 
-# Copy the build output to replace the default nginx contents.
-COPY --from=build /usr/local/app/dist/oscarprince /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 8010
-EXPOSE 8010
+# Expose port 4000
+EXPOSE 4000
