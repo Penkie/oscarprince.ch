@@ -1,17 +1,21 @@
 <div class="bar">
-    <div class="dot red"></div>
-    <div class="dot orange"></div>
-    <div class="dot green"></div>
+  <div class="dot red"></div>
+  <div class="dot orange"></div>
+  <div class="dot green"></div>
 </div>
 <div (click)="focusInput()" #console class="console">
-    <div *ngFor="let output of outputs" class="output">
-        {{ output }}
+  @for (output of outputs; track output) {
+    <div class="output">
+      {{ output }}
     </div>
-    <div class="user-input">
-        <label class="input-label" for="user-input">user input</label>
-        <input name="user-input" (focus)="displayCaret = true" (blur)="displayCaret = false" #userInput (keydown.enter)="submitInput()" [(ngModel)]="input" type="text">
-        <span>{{ userDisplay }}</span>
-        <div class="display-text">{{ input }}</div>
-        <div *ngIf="displayCaret" class="caret"></div>
-    </div>
+  }
+  <div class="user-input">
+    <label class="input-label" for="user-input">user input</label>
+    <input name="user-input" (focus)="displayCaret = true" (blur)="displayCaret = false" #userInput (keydown.enter)="submitInput()" [(ngModel)]="input" type="text">
+    <span>{{ userDisplay }}</span>
+    <div class="display-text">{{ input }}</div>
+    @if (displayCaret) {
+      <div class="caret"></div>
+    }
+  </div>
 </div>

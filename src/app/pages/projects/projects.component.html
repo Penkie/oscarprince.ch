@@ -1,45 +1,57 @@
 <header>
-    <span class="title">Mes projets</span>
+  <span class="title">Mes projets</span>
 </header>
 <div class="projects">
-    <div *ngFor="let project of projects" class="project">
-        <div class="top">
-            <span class="title">
-                <span>{{ project.title }}</span>
-                <div [ngClass]="project.status.toString().toLowerCase()" class="status">
-                    <span *ngIf="project.status.toString() === 'UNDER_DEVELOPMENT'">En cours de développement</span>
-                    <span *ngIf="project.status.toString() === 'ARCHIVED'">Archivé</span>
-                    <span *ngIf="project.status.toString() === 'ONLINE'">En ligne</span>
-                    <span *ngIf="project.status.toString() === 'OFFLINE'">Hors ligne</span>
-                </div>
-            </span>
-            <span class="desc">{{ project.description }}</span>
-        </div>
-        <div class="bottom">
-            <div class="techonolgies">
-                @for (technology of project.technologies; track $index) {
-                    <div [ngStyle]="{'background-color': technology.color + '2b'}" class="technology">
-                        <img width="20" src="assets/tech_icons/{{technology.icon_file_name}}" alt="{{technology.alt}}">
-                        <span>{{ technology.name }}</span>
-                    </div>
-                }
+  @for (project of projects; track project) {
+    <div class="project">
+      <div class="top">
+        <span class="title">
+          <span>{{ project.title }}</span>
+          <div [ngClass]="project.status.toString().toLowerCase()" class="status">
+            @if (project.status.toString() === 'UNDER_DEVELOPMENT') {
+              <span>En cours de développement</span>
+            }
+            @if (project.status.toString() === 'ARCHIVED') {
+              <span>Archivé</span>
+            }
+            @if (project.status.toString() === 'ONLINE') {
+              <span>En ligne</span>
+            }
+            @if (project.status.toString() === 'OFFLINE') {
+              <span>Hors ligne</span>
+            }
+          </div>
+        </span>
+        <span class="desc">{{ project.description }}</span>
+      </div>
+      <div class="bottom">
+        <div class="techonolgies">
+          @for (technology of project.technologies; track $index) {
+            <div [ngStyle]="{'background-color': technology.color + '2b'}" class="technology">
+              <img width="20" src="assets/tech_icons/{{technology.icon_file_name}}" alt="{{technology.alt}}">
+              <span>{{ technology.name }}</span>
             </div>
-            <div class="links">
-                @if (project.url) {
-                    <a target="_blank" href="{{ project.url }}" class="link">
-                        <img width="20" src="assets/link.svg" alt="link">
-                        <span>{{ project.url | removeHttpString }}</span>
-                    </a>
-                }
-            </div>
+          }
         </div>
+        <div class="links">
+          @if (project.url) {
+            <a target="_blank" href="{{ project.url }}" class="link">
+              <img width="20" src="assets/link.svg" alt="link">
+              <span>{{ project.url | removeHttpString }}</span>
+            </a>
+          }
+        </div>
+      </div>
     </div>
+  }
 </div>
 @if (errorLoading) {
-    <div class="error-container">
-        <app-error [message]="'Une erreur est survenue lors du chargement des projets.'"></app-error>
-    </div>
+  <div class="error-container">
+    <app-error [message]="'Une erreur est survenue lors du chargement des projets.'"></app-error>
+  </div>
 }
-<div *ngIf="(!projects || projects.length <= 0) && !errorLoading" class="loading">
+@if ((!projects || projects.length <= 0) && !errorLoading) {
+  <div class="loading">
     <img src="assets/loader.svg" alt="loading">
-</div>
+  </div>
+}

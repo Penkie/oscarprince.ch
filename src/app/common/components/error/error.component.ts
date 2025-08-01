@@ -4,7 +4,8 @@ import { Component, Input } from '@angular/core';
     selector: 'app-error',
     imports: [],
     templateUrl: './error.component.html',
-    styleUrl: './error.component.scss'
+    styleUrl: './error.component.scss',
+    standalone: true
 })
 export class ErrorComponent {
 
