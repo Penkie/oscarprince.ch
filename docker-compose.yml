@@ -6,14 +6,14 @@ services:
     networks:
       - proxy
     ports:
-      - "8010:8010"
+      - "4000:4000"
     labels:
       - "traefik.http.routers.oscarprince-web-http.rule=Host(`oscarprince.ch`)"
       - "traefik.http.routers.oscarprince-web-http.middlewares=oscarprince-web-https"
       - "traefik.http.middlewares.oscarprince-web-https.redirectscheme.scheme=https"
       - "traefik.http.routers.oscarprince-web-http.entrypoints=web"
       - "traefik.http.routers.oscarprince-web.rule=Host(`oscarprince.ch`)"
-      - "traefik.http.services.oscarprince-web.loadbalancer.server.port=8010"
+      - "traefik.http.services.oscarprince-web.loadbalancer.server.port=4000"
       - "traefik.http.routers.oscarprince-web.entrypoints=websecure"
       - "traefik.http.routers.oscarprince-web.tls.certresolver=zeusresolver"
       - "traefik.http.routers.oscarprince-web.tls=true"
