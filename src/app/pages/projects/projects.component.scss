@@ -117,9 +117,61 @@
     }
 
     .loading {
-        display: flex;
-        justify-content: center;
-        margin: 50px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
+
+        .card {
+            padding: 25px;
+            min-height: 200px;
+            // border: 1px solid rgb(227, 227, 227);
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 15px;
+
+            .skeleton {
+                animation: skeleton-loading 1s linear infinite alternate;
+            }
+
+            @keyframes skeleton-loading {
+                0% {
+                    background-color: hsl(200, 20%, 90%);
+                }
+                100% {
+                    background-color: hsl(200, 20%, 95%);
+                }
+            }
+
+            .title {
+                background-color: grey;
+                width: 200px;
+                height: 20px;
+                border-radius: 8px;
+            }
+
+            .description {
+                background-color: grey;
+                width: 400px;
+                height: 100px;
+                border-radius: 8px;
+            }
+
+            .tags {
+                display: flex;
+                gap: 5px;
+
+                .el {
+                    background-color: grey;
+                    width: 50px;
+                    height: 20px;
+                    border-radius: 8px;
+                }
+            }
+        }
     }
 
 
