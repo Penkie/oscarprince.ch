@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Command } from './models/command.model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'console',
@@ -20,6 +21,7 @@ export class ConsoleComponent implements AfterViewChecked, OnInit {
   @ViewChild('userInput') private userInput!: ElementRef;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private http: HttpClient
   ) {}
 
@@ -28,8 +30,10 @@ export class ConsoleComponent implements AfterViewChecked, OnInit {
   }
 
   public ngOnInit(): void {
-    this.http.get<Array<Command>>('assets/commands.json')
-      .subscribe(commands => this.commands = commands);
+    if (isPlatformBrowser(this.platformId)) {
+      this.http.get<Array<Command>>('/assets/commands.json')
+        .subscribe(commands => this.commands = commands);
+    }
   }
 
   public submitInput(): void {
