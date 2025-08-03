@@ -12,44 +12,14 @@ import { ProjectTechnology } from '../models/project-technology.model';
 })
 export class ProjectsService {
 
-  private API_URL = `${environment.API_URL}/api/collections`;
+  private API_URL = `${environment.API_URL}`;
 
   constructor(
     private http: HttpClient
   ) { }
 
   public getProjects$(): Observable<Project[]> {
-    return zip(this.getTechnologies(), this.http.get<Pageable<Project>>(`${this.API_URL}/project/records?perPage=120`).pipe(map(pageable => pageable.items)), this.getProjectsTechnologiesLinks())
-      .pipe(
-        tap(values => {
-          values[1].map(project => {
-            const projectLinks = values[2].filter((e) => e.project === project.id);
-            const techonolgies: Array<Technology> = [];
-            projectLinks.forEach(e => {
-              const technology = values[0].find((i) => i.id === e.technology);
-              if (technology) {
-                techonolgies.push(technology);
-              }
-            });
-            techonolgies.sort((a, b) => a.name.localeCompare(b.name));
-            project.technologies = techonolgies;
-          })
-        }),
-        map(values => values[1])
-      );
+    return this.http.get<Array<Project>>(`${this.API_URL}/projects`);
   }
 
-  public getProjectsTechnologiesLinks(): Observable<ProjectTechnology[]> {
-    return this.http.get<Pageable<ProjectTechnology>>(`${this.API_URL}/project_technology/records?perPage=120`)
-      .pipe(
-        map(pageable => pageable.items)
-      );
-  }
-
-  public getTechnologies(): Observable<Technology[]> {
-    return this.http.get<Pageable<Technology>>(`${this.API_URL}/technology/records?perPage=120`)
-      .pipe(
-        map(pageable => pageable.items)
-      );
-  }
 }

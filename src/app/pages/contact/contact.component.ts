@@ -37,12 +37,10 @@ export class ContactComponent {
 
     this.contactService.newContactForm(this.contactForm.controls.name.value!, this.contactForm.controls.email.value!, this.contactForm.controls.message.value!)
       .subscribe({
-        next: (res) => {
-            this.loading = false;
-            if (res.id) {
-              this.sentSuccessfully = true;
-              this.contactForm.reset(this.contactForm.value);
-            }
+        next: () => {
+          this.loading = false;
+          this.sentSuccessfully = true;
+          this.contactForm.reset(this.contactForm.value);
         },
         error: (err) => {
           this.loading = false;

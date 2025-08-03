@@ -3,42 +3,5 @@ services:
     build: .
     container_name: oscarprince-web
     restart: unless-stopped
-    networks:
-      - proxy
     ports:
       - "4000:4000"
-    labels:
-      - "traefik.http.routers.oscarprince-web-http.rule=Host(`oscarprince.ch`)"
-      - "traefik.http.routers.oscarprince-web-http.middlewares=oscarprince-web-https"
-      - "traefik.http.middlewares.oscarprince-web-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.oscarprince-web-http.entrypoints=web"
-      - "traefik.http.routers.oscarprince-web.rule=Host(`oscarprince.ch`)"
-      - "traefik.http.services.oscarprince-web.loadbalancer.server.port=4000"
-      - "traefik.http.routers.oscarprince-web.entrypoints=websecure"
-      - "traefik.http.routers.oscarprince-web.tls.certresolver=zeusresolver"
-      - "traefik.http.routers.oscarprince-web.tls=true"
-  api:
-    build: ./pocketbase/.
-    container_name: oscarprince-api
-    restart: unless-stopped
-    networks:
-      - proxy
-    ports:
-      - "8011:8011"
-    volumes:
-      - "./pocketbase-data:/pb/pb_data"
-    labels:
-      - "traefik.http.routers.oscarprince-api-http.rule=Host(`pb.oscarprince.ch`)"
-      - "traefik.http.routers.oscarprince-api-http.middlewares=oscarprince-api-https"
-      - "traefik.http.middlewares.oscarprince-api-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.oscarprince-api-http.entrypoints=web"
-      - "traefik.http.routers.oscarprince-api.rule=Host(`pb.oscarprince.ch`)"
-      - "traefik.http.services.oscarprince-api.loadbalancer.server.port=8011"
-      - "traefik.http.routers.oscarprince-api.entrypoints=websecure"
-      - "traefik.http.routers.oscarprince-api.tls.certresolver=zeusresolver"
-      - "traefik.http.routers.oscarprince-api.tls=true"
-
-networks:
-  proxy:
-    name: proxy
-    external: true

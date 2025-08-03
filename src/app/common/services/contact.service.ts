@@ -9,13 +9,13 @@ import { Contact } from '../models/contact.model';
 })
 export class ContactService {
 
-  private API_URL = `${environment.API_URL}/api/collections/contact/records`;
+  private API_URL = `${environment.API_URL}`;
 
   constructor(
     private http: HttpClient
   ) { }
 
   public newContactForm(name: string, email: string, message: string): Observable<Contact> {
-    return this.http.post<Contact>(`${this.API_URL}`, { name, message, email });
+    return this.http.post<Contact>(`${this.API_URL}/contact`, { name, text: message, email });
   }
 }
